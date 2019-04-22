@@ -1,0 +1,954 @@
+<form class="ng-pristine ng-valid ng-scope">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center ng-binding">Detalhe do Produto: ABRETIA</div>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-static">
+                <tbody><tr>
+                    <th class="col-xs-3 ng-scope" translate="">Nome da Empresa Detentora do Registro</th>
+                    <td colspan="3" class="ng-binding">FARMOQUÍMICA S/A</td>
+                    
+                    <th class="col-xs-2 ng-scope" translate="">CNPJ</th>
+                    <td class="ng-binding">33.349.473/0001-58</td>
+                    
+                    <!-- ngIf: produto.tipoProduto == 6 -->
+                    <!-- ngIf: produto.tipoProduto != 6 --><th class="col-xs-2 ng-scope" ng-if="produto.tipoProduto != 6" translate="">Autorização</th><!-- end ngIf: produto.tipoProduto != 6 -->
+                    <td class="text-center ng-binding">1.00.390-6</td>
+                </tr>
+                 <tr>
+                    <th class="col-xs-3 ng-scope" translate="">Processo</th>
+                    <td colspan="3" class="ng-binding">25351.567981/2016-97</td>
+                    
+                    <th class="col-xs-2 ng-scope" translate="">Categoria Regulatória</th>
+                    <td class="ng-binding"></td>
+                    
+                    <th class="col-xs-2 ng-scope" translate="">Data do registro</th>
+                    <td class="ng-binding">20/02/2017</td>
+                    
+                </tr>
+                    <tr>
+	                    <th class="col-xs-3 ng-scope" translate="">Nome Comercial</th>
+	                    <td colspan="3" class="ng-binding">ABRETIA</td>
+	                    
+	                    <th class="col-xs-2 ng-scope" translate="">Registro</th>
+	                    <td class="ng-binding">103900192</td>
+	                    
+	                    <th class="col-xs-2 ng-scope" translate="">Vencimento do Registro</th>
+	                    <td class="ng-binding">02/2022</td>
+	                    
+	                </tr>
+                <tr>
+                    <th class="col-xs-3 ng-scope" translate="">Princípio Ativo</th>
+                    <td colspan="5" class="ng-binding">CLORIDRATO DE DULOXETINA</td>
+                    
+                    <th class="col-xs-2 ng-scope" translate="">Medicamento de referência</th>
+                    <!-- ngIf: produto.medicamentoReferencia -->
+                    <!-- ngIf: !produto.medicamentoReferencia --><td ng-if="!produto.medicamentoReferencia" class="ng-scope"><label class="sem_dados ng-scope" translate="">-</label></td><!-- end ngIf: !produto.medicamentoReferencia -->                    
+                </tr>
+                <tr>
+                    <th class="col-xs-3 ng-scope" translate="">Classe Terapêutica</th>
+                    <td colspan="5"><!-- ngRepeat: ct in produto.classesTerapeuticas --><div ng-repeat="ct in produto.classesTerapeuticas" class="ng-binding ng-scope" style="">ANTIDEPRESSIVOS</div><!-- end ngRepeat: ct in produto.classesTerapeuticas --></td>
+                    
+                    <th class="col-xs-2 ng-scope" translate="">ATC</th>
+                    <td><!-- ngRepeat: atc in produto.atc --></td>
+                </tr>
+             	<tr>
+                    <th class="col-xs-3 ng-scope" translate="">Parecer Público</th>
+                    <td colspan="3">
+                    	
+                    	<!-- ngIf: produto.codigoParecerPublico != null -->
+                    	
+                    	<!-- ngIf: produto.codigoParecerPublico == null --><span ng-if="produto.codigoParecerPublico == null" class="ng-scope">-</span><!-- end ngIf: produto.codigoParecerPublico == null -->
+                    </td>
+                    <th class="col-xs-3 ng-scope" translate="">Bula Paciente</th>
+                    <td>
+                    
+                    	<!-- ngIf: produto.codigoBulaPaciente != null --><a ng-if="produto.codigoBulaPaciente != null" href="api/consulta/medicamentos/arquivo/bula/parecer/eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMDMzMDg3MiIsIm5iZiI6MTU1NTk1MjUzMSwiZXhwIjoxNTU1OTUyODMxfQ.Gg3PzP23uuWE0JSIhniHDBGVnoq-TL-26PQRIaxk54Nto6nsV1h3H02pfvRbGyq3ZLhNNQPpteAgk71sN4lyhQ/?Authorization=Guest" class="ng-scope" style="">                    		
+                    		<img src="assets/img/pdf.png">
+                    
+                    	</a><!-- end ngIf: produto.codigoBulaPaciente != null -->
+                    	<!-- ngIf: produto.codigoBulaPaciente == null -->
+                    </td>
+                    <th class="col-xs-3 ng-scope" translate="">Bula Profissional</th>
+                    <td>
+                    	<!-- ngIf: produto.codigoBulaProfissional != null --><a ng-if="produto.codigoBulaProfissional != null" href="api/consulta/medicamentos/arquivo/bula/parecer/eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMDMzMDg2NSIsIm5iZiI6MTU1NTk1MjUzMSwiZXhwIjoxNTU1OTUyODMxfQ.pQ3t3RguQyNmal4GBvHGjnXaY3RiC-JVqod8nq8ks33Sxu6W0igUpuD7ZIY-UuVYMGsyv5ltrgQWvOB6MB1m7A/?Authorization=Guest" class="ng-scope" style="">
+                    		<img src="assets/img/pdf.png">
+                    	</a><!-- end ngIf: produto.codigoBulaProfissional != null -->
+                    	<!-- ngIf: produto.codigoBulaProfissional == null -->
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+
+        <!-- ngIf: !produto.rotulos.length && !produto.apresentacoes.length -->
+    </div>
+	
+	<!-- ngIf: produto.rotulos.length || produto.apresentacoes.length --><div ng-if="produto.rotulos.length || produto.apresentacoes.length" class="ng-scope" style="">
+        <!-- ngIf: !expandir -->
+        <!-- ngIf: expandir --><a class="btn btn-default ng-scope" ng-click="exibirEsconderApresentacoes()" ng-if="expandir" translate="" style="">Esconder Todas</a><!-- end ngIf: expandir -->
+    </div><!-- end ngIf: produto.rotulos.length || produto.apresentacoes.length -->
+    
+    <br>    
+    
+    <!-- ngIf: produto.rotulos.length -->
+	
+	<div class="panel panel-default">
+        <div class="table-responsive">
+
+		        <!-- ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'" style="">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">1</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	30 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 7
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920015</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="" style="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">2</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	30 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 15
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920023</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">3</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	30 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 30
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920031</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">4</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	30 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 60
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920041</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">5</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	60 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 7
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920058</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">6</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	60 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 15
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920066</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">7</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	60 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 30
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920074</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' --><table class="table table-bordered table-static ng-scope" ng-repeat="apresentacao in produto.apresentacoes | orderBy:'numero'">
+	                <tbody><tr ng-show="apresentacao.numero == '1' || algumaExpandida" class="" style="">
+	                    <th>
+	                        <span translate="" class="ng-scope">Nº</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Apresentação</span>                        
+	                    </th>
+	                    <th>
+	                        <span translate="" class="ng-scope">Registro</span>                        
+	                    </th>
+	                    <th colspan="1" translate="" class="ng-scope">Forma Farmacêutica</th>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Data de Publicação</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <!-- ngIf: produto.processo.situacao != 23 --><th ng-if="produto.processo.situacao != 23" translate="" class="ng-scope">Validade</th><!-- end ngIf: produto.processo.situacao != 23 -->
+	                </tr>
+	                <tr ng-click="expandirDetalhe(apresentacao)" style="cursor:pointer">
+	                	<!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 text-center ng-binding ng-scope" ng-if="produto.processo.situacao != 23">8</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-4 ng-binding">
+	                    	60 MG CAP DURA LIB RETARD CT BL AL PLAS TRANS X 60
+	                    	<!-- ngIf: apresentacao.inativa -->
+	                        <!-- ngIf: apresentacao.ativa --><span ng-if="apresentacao.ativa" class="label label-info ng-scope" translate="">ATIVA</span><!-- end ngIf: apresentacao.ativa -->      	
+	                    </td>
+	                    <td class="col-xs-1 ng-binding">1039001920082</td>
+	                    <td class="col-xs-4" colspan="1">
+	                    	<!-- ngRepeat: ff in apresentacao.formasFarmaceuticas --><div ng-repeat="ff in apresentacao.formasFarmaceuticas" class="ng-binding ng-scope">CAPSULA GELATINOSA DURA DE LIBERAÇAO RETARDADA</div><!-- end ngRepeat: ff in apresentacao.formasFarmaceuticas -->
+	                    </td>
+	                    <!-- ngIf: produto.processo.situacao != 23 --><td class="col-xs-1 ng-binding ng-scope" ng-if="produto.processo.situacao != 23">20/02/2017</td><!-- end ngIf: produto.processo.situacao != 23 -->
+	                    <td class="col-xs-1 ng-binding">24 
+	                    	<!-- ngIf: apresentacao.tipoValidade --><span ng-if="apresentacao.tipoValidade" class="ng-binding ng-scope">meses</span><!-- end ngIf: apresentacao.tipoValidade -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Princípio Ativo</th>
+	                    <td colspan="5"><!-- ngRepeat: pa in apresentacao.principiosAtivos --><div ng-repeat="pa in apresentacao.principiosAtivos" class="ng-binding ng-scope">CLORIDRATO DE DULOXETINA</div><!-- end ngRepeat: pa in apresentacao.principiosAtivos --></td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Complemento Diferencial da Apresentação</th>
+	                    <!-- ngIf: apresentacao.complemento -->
+	                    <!-- ngIf: !apresentacao.complemento --><td colspan="5" ng-if="!apresentacao.complemento" class="sem_dados ng-scope" translate="">-</td><!-- end ngIf: !apresentacao.complemento -->
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Embalagem</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.embalagemPrimaria.tipo --><ul ng-if="apresentacao.embalagemPrimaria.tipo" class="ng-scope">
+	                            <li class="ng-binding"><span translate="" class="ng-scope">Primária</span> - BLISTER DE ALUMINIO/PLASTICO TRANSPARENTE<!-- ngIf: apresentacao.embalagemPrimaria.observacao --></li>
+	                            <!-- ngIf: apresentacao.embalagemSecundaria --><li ng-if="apresentacao.embalagemSecundaria" class="ng-binding ng-scope"><span translate="" class="ng-scope">Secundária</span> - CARTUCHO DE CARTOLINA<!-- ngIf: apresentacao.embalagemSecundaria.observacao --></li><!-- end ngIf: apresentacao.embalagemSecundaria -->
+	                            <!-- ngRepeat: acessorio in apresentacao.acessorios -->
+	                            <!-- ngRepeat: envoltorio in apresentacao.envoltorios -->
+	                        </ul><!-- end ngIf: apresentacao.embalagemPrimaria.tipo -->
+	                        <!-- ngIf: !apresentacao.embalagemPrimaria.tipo -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Local de Fabricação</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: !apresentacao.fabricantesNacionais.length && !apresentacao.fabricantesInternacionais.length -->
+	                        	<!-- ngIf: apresentacao.fabricantesNacionais.length --><ul ng-if="apresentacao.fabricantesNacionais.length" class="ng-scope">
+	                            <!-- ngRepeat: fn in apresentacao.fabricantesNacionais --><li ng-repeat="fn in apresentacao.fabricantesNacionais" class="ng-binding ng-scope">ACHÉ LABORATÓRIOS FARMACÊUTICOS S.A. - 60.659.463/0001-91 - GUARULHOS - SP - BRASIL</li><!-- end ngRepeat: fn in apresentacao.fabricantesNacionais -->
+	                        </ul><!-- end ngIf: apresentacao.fabricantesNacionais.length -->
+	                        
+	                        <!-- ngIf: apresentacao.fabricantesInternacionais.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Via de Administração</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: va in apresentacao.viasAdministracao --><div ng-repeat="va in apresentacao.viasAdministracao" class="ng-binding ng-scope">ORAL</div><!-- end ngRepeat: va in apresentacao.viasAdministracao -->
+	                        <!-- ngIf: !apresentacao.viasAdministracao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Conservação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">CONSERVAR EM  TEMPERATURA AMBIENTE ( AMBIENTE COM TEMPERATURA ENTRE 15 E 30ºC)</div><!-- end ngRepeat: c in apresentacao.conservacao --><div ng-repeat="c in apresentacao.conservacao" class="ng-binding ng-scope">PROTEGER DA LUZ E UMIDADE</div><!-- end ngRepeat: c in apresentacao.conservacao -->
+	                        <!-- ngIf: !apresentacao.conservacao.length -->
+	                    </td>
+	                </tr>
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Restrição de prescrição</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: rp in apresentacao.restricaoPrescricao --><div ng-repeat="rp in apresentacao.restricaoPrescricao" class="ng-binding ng-scope">Venda sob prescrição médica com retenção de receita</div><!-- end ngRepeat: rp in apresentacao.restricaoPrescricao -->
+	                        <!-- ngIf: !apresentacao.restricaoPrescricao.length -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Destinação</th>
+	                    <td colspan="5">
+	                        <!-- ngRepeat: d in apresentacao.destinacao --><div ng-repeat="d in apresentacao.destinacao" class="ng-binding ng-scope">Comercial</div><!-- end ngRepeat: d in apresentacao.destinacao -->
+	                        <!-- ngIf: !apresentacao.destinacao.length -->
+	                    </td>
+	                </tr>
+	              
+	                <tr ng-show="apresentacao.exibirDetalhe" class="">
+	                    <th class="col-xs-1 ng-scope" translate="">Apresentação fracionada</th>
+	                    <td colspan="5">
+	                        <!-- ngIf: apresentacao.apresentacaoFracionada --><div ng-if="apresentacao.apresentacaoFracionada" class="ng-binding ng-scope">Não</div><!-- end ngIf: apresentacao.apresentacaoFracionada -->
+	                        <!-- ngIf: !apresentacao.apresentacaoFracionada -->
+	                    </td>
+	                </tr>
+	                
+	                <tr ng-show="apresentacao.exibirDetalhe || algumaExpandida" class="">
+	                	<td colspan="6"> <br><br></td>	                	
+	                </tr>
+	            </tbody></table><!-- end ngRepeat: apresentacao in produto.apresentacoes | orderBy:'numero' -->
+	    
+	    </div>
+        <div class="panel-footer text-right">
+            <a class="btn btn-default ng-scope" href="javascript:window.history.back()" translate="">Voltar</a>
+        </div>
+    </div>
+</form>
